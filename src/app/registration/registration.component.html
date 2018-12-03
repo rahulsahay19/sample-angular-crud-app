@@ -1,4 +1,10 @@
 <div class="container">
+    <div class="text-right">
+        <button type="submit" class="btn btn-primary" (click)="onNew()">
+          New
+        </button>
+      </div>
+      <br>
   <div class="reglist">
     <table class="table table-striped">
       <thead>
@@ -13,7 +19,7 @@
 
           <th>Email</th>
 
-          <th>Country</th>
+          <th>Company</th>
 
           <th></th>
 
@@ -58,11 +64,11 @@
       </tbody>
     </table>
 
-    <div class="text-right">
+    <!-- <div class="text-right">
       <button type="submit" class="btn btn-primary" (click)="onNew()">
         New
       </button>
-    </div>
+    </div> -->
   </div>
   <div class="regentry" *ngIf="showNew">
     <form (ngSubmit)="onSave()">
