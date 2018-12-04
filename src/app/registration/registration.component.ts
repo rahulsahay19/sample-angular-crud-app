@@ -7,166 +7,98 @@ import { Registration } from '../models/registration';
   styleUrls: ["./registration.component.scss"]
 })
 export class RegistrationComponent implements OnInit {
-  // It maintains list of Registrations
-  registrations: Registration[] = [];
-  // It maintains registration Model
-  regModel: Registration;
-  // It maintains registration form display status. By default it will be false.
-  showNew: Boolean = false;
-  // It will be either 'Save' or 'Update' based on operation.
-  submitType: string = "Save";
-  // It maintains table row index based on selection.
-  selectedRow: number;
-  // It maintains Array of countries.
-  countries: string[] = ["US", "UK", "India", "UAE"];
+    registrations: Registration[] = [];
+    regModel: Registration;
+    showNew: Boolean = false;
+    submitType: string = "Save";
+    selectedRow: number;
+    companies: string[] = ["Company A", "Company B", "Company C", "Company D", "Company E"];
   constructor() {
-    // Add default registration data.
-
-    this.registrations.push(
+      this.registrations.push(
       new Registration(
-        "Johan",
-        "Peter",
-        { year: 1980, month: 5, day: 12 },
-        "johan@gmail.com",
-        "johan123",
-        "UK"
+        "Dave",
+        "Black",
+        { year: 1986, month: 1, day: 19 },
+        { year: 2008, month: 4, day: 1},
+        "daveblack@companya.com",
+        "pass123",
+        "Company A"
       )
     );
 
     this.registrations.push(
       new Registration(
-        "Mohamed",
-        "Tariq",
-        { year: 1975, month: 12, day: 3 },
-        "tariq@gmail.com",
-        "tariq123",
-        "UAE"
+        "Thomas",
+        "Tele",
+        { year: 1980, month: 4, day: 19 },
+        { year: 2004, month: 5, day: 1},
+        "thomastele@companyb.com",
+        "pass234",
+        "Company B"
       )
     );
 
     this.registrations.push(
       new Registration(
-        "Nirmal",
-        "Kumar",
-        { year: 1970, month: 7, day: 25 },
-        "nirmal@gmail.com",
-        "nirmal123",
-        "India"
+        "John",
+        "Richards",
+        { year: 1988, month: 7, day: 11 },
+        { year: 2010, month: 1, day: 3},
+        "johnrichards@companyc.com",
+        "pass345",
+        "Company C"
       )
     );
   }
 
-  // This method associate to New Button.
-
+  
 onNew() {
-
-  // Initiate new registration.
-  
   this.regModel = new Registration();
-  
-  // Change submitType to 'Save'.
-  
   this.submitType = 'Save';
-  
-  // display registration entry section.
-  
   this.showNew = true;
-  
   }
-
-  // This method associate to Save Button.
 
 onSave() {
-
   if (this.submitType === 'Save') {
-  
-  // Push registration model object into registration list.
-  
-  this.registrations.push(this.regModel);
-  
+    this.registrations.push(this.regModel);
   } else {
   
-  // Update the existing properties values based on model.
+  // Update existing 
   
-  this.registrations[this.selectedRow].firstName = this.regModel.firstName;
-  
-  this.registrations[this.selectedRow].lastName = this.regModel.lastName;
-  
+  this.registrations[this.selectedRow].firstName = this.regModel.firstName;  
+  this.registrations[this.selectedRow].lastName = this.regModel.lastName;  
   this.registrations[this.selectedRow].dob = this.regModel.dob;
-  
-  this.registrations[this.selectedRow].email = this.regModel.email;
-  
-  this.registrations[this.selectedRow].password = this.regModel.password;
-  
-  this.registrations[this.selectedRow].country = this.regModel.country;
-  
-  }
-
-  
-  
-  // Hide registration entry section.
+  this.registrations[this.selectedRow].doj = this.regModel.doj;  
+  this.registrations[this.selectedRow].email = this.regModel.email;  
+  this.registrations[this.selectedRow].password = this.regModel.password;  
+  this.registrations[this.selectedRow].company = this.regModel.company;
+}
   
   this.showNew = false;
   
-  }
-
-  // This method associate to Edit Button.
+}
 
 onEdit(index: number) {
-
-  // Assign selected table row index.
-  
   this.selectedRow = index;
-  
-  // Initiate new registration.
-  
   this.regModel = new Registration();
-  
-  // Retrieve selected registration from list and assign to model.
-  
+  // Retrieve selected 
   this.regModel = Object.assign({}, this.registrations[this.selectedRow]);
-  
-  // Change submitType to Update.
-  
   this.submitType = 'Update';
-  
-  // Display registration entry section.
-  
   this.showNew = true;
   
-  }
-
-  // This method associate to Delete Button.
+}
 
 onDelete(index: number) {
-
-  // Delete the corresponding registration entry from the list.
-  
   this.registrations.splice(index, 1);
-  
-  }
-
-  // This method associate to Cancel Button.
+}
 
 onCancel() {
-
-  // Hide registration entry section.
-  
   this.showNew = false;
-  
-  }
+}
 
-  // This method associate to Bootstrap dropdown selection change.
-
-onChangeCountry(country: string) {
-
-  // Assign corresponding selected country to model.
-  
-  this.regModel.country = country;
-  
-  }
-
-
+onChangeCompany(company: string) {
+  this.regModel.company = company;
+}
   ngOnInit() {}
 }
 

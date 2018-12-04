@@ -5,7 +5,7 @@
         </button>
       </div>
       <br>
-  <div class="reglist">
+  <div>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -16,6 +16,8 @@
           <th>Last Name</th>
 
           <th>DOB</th>
+
+          <th>DOJ</th>
 
           <th>Email</th>
 
@@ -45,9 +47,19 @@
             }}
           </td>
 
+          <td>
+            {{
+              registration.doj.day +
+                "/" +
+                registration.doj.month +
+                "/" +
+                registration.doj.year
+            }}
+          </td>
+
           <td>{{ registration.email }}</td>
 
-          <td>{{ registration.country }}</td>
+          <td>{{ registration.company }}</td>
 
           <td>
             <button type="button" class="btn btn-info" (click)="onEdit(i)">
@@ -130,57 +142,79 @@
       </div>
 
       <div class="form-group row">
-        <label for="example-email-input" class="col-2 col-form-label"
-          >Email</label
-        >
+        <label for="dob-input" class="col-2 col-form-label">DOJ</label>
+
+        <div class="col-3 input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="yyyy-mm-dd"
+            name="doj"
+            [(ngModel)]="regModel.doj"
+            ngbDatepicker
+            #doj="ngbDatepicker"
+          />
+
+          <button
+            class="input-group-addon"
+            (click)="doj.toggle()"
+            type="button"
+          >
+            <img
+              src="assets/img/calendar-icon.svg"
+              style="width: 1.2rem; height: 1rem; cursor: pointer;"
+            />
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="example-email-input" class="col-2 col-form-label">Email</label>
 
         <div class="col-10">
           <input
             class="form-control"
             type="email"
             [(ngModel)]="regModel.email"
-            name="email"
-          />
+            name="email"/>
         </div>
       </div>
 
       <div class="form-group row">
         <label for="example-password-input" class="col-2 col-form-label"
-          >Password</label
-        >
+          >Password</label>
 
         <div class="col-10">
           <input
             class="form-control"
             type="password"
             [(ngModel)]="regModel.password"
-            name="password"
-          />
+            name="password"/>
         </div>
       </div>
 
       <div class="form-group row">
-        <label for="city-input" class="col-2 col-form-label">Country</label>
+        <label for="city-input" class="col-2 col-form-label">Company</label>
 
         <div class="col-10 dropdown" ngbDropdown myDrop="ngbDropdown">
           <button
             type="button"
             class="btn btn-outline-primary"
             id="dropdownManual"
-            name="country"
+            name="company"
             ngbDropdownToggle
           >
-            {{ regModel.country }}
+            {{ regModel.company }}
           </button>
 
           <div ngbDropdownMenu aria-labelledby="dropdownManual">
             <button
               type="button"
               class="dropdown-item"
-              *ngFor="let country of countries"
-              (click)="onChangeCountry(country)"
+              *ngFor="let company of companies"
+              (click)="onChangeCompany(company)"
             >
-              {{ country }}
+              {{ company }}
             </button>
           </div>
         </div>
