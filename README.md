@@ -28,7 +28,7 @@ First you need to install yeoman generator globally. Later on, you can type belo
 
 ![10th](https://user-images.githubusercontent.com/3886381/49565416-11216780-f94d-11e8-89e6-72cd955893e4.png)
 
-![11th](https://user-images.githubusercontent.com/3886381/49565418-11216780-f94d-11e8-8f23-6e414ff02d65.png)
+![11th](https://user-images.githubusercontent.com/3886381/58373651-04222000-7f4f-11e9-8eaf-d9c713a67635.png)
 
 ![12th](https://user-images.githubusercontent.com/3886381/49565421-12529480-f94d-11e8-9a30-3fd08ddcb1d7.png)
 
