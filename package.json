@@ -1,15 +1,16 @@
 {
-  "name": "sample-crud",
-  "version": "0.0.0",
+  "name": "angular-sample-crud",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "playground": "angular-playground"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~7.1.0",
     "@angular/common": "~7.1.0",
@@ -45,6 +46,32 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.1.6"
-  }
+    "typescript": "~3.1.6",
+    "angular-playground": "^5.5.0"
+  },
+  "description": "This project is sample angular CRUD application. Extend this app suits your need!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahulsahay19/sample-angular-crud-app.git"
+  },
+  "keywords": [
+    "angular-cli",
+    "angular",
+    "angular 7",
+    "angular sample",
+    "angular demo",
+    "angular crud",
+    "typescript",
+    "angular sample crud app",
+    "javascript",
+    "rahul sahay",
+    "crud",
+    "http"
+  ],
+  "author": "Rahul Sahay",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rahulsahay19/sample-angular-crud-app/issues"
+  },
+  "homepage": "https://github.com/rahulsahay19/sample-angular-crud-app#readme"
 }
